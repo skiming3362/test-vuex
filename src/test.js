@@ -2,7 +2,7 @@
 * @Author: skiming
 * @Date:   2017-07-16 22:00:55
 * @Last Modified by:   chenming
-* @Last Modified time: 2017-07-24 15:06:17
+* @Last Modified time: 2017-07-24 16:46:44
 */
 
 import './test.css';
@@ -78,7 +78,16 @@ router.afterEach(route => {
 
 const store = new Vuex.Store({
     state: {
-        count: 0
+        count: 0,
+        todos: [
+            { id: 1, text: '...', done: true },
+            { id: 2, text: '...', done: false }
+        ]
+    },
+    getters: {
+        doneTodos: state => state.todos.filter(todo => todo.done),
+        doneTodosCount: (state, getters) => getters.doneTodos.length,
+        getTodoById: (state, getters) => id => state.todos.find(todo => todo.id === id)
     },
     mutations: {
         increment: state => state.count++
