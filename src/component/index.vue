@@ -1,6 +1,6 @@
 <template>
   <div>
-      <el-button type="primary" @click="increment">+</el-button>
+      <el-button type="primary" @click="add({ amount: 10 })">+</el-button>
       <div>{{ 'count ' + count }}</div>
       <div>{{ 'localCount ' + localCount }}</div>
       <div>{{ 'countPlusLocalState ' + countPlusLocalState }}</div>
@@ -13,6 +13,7 @@
 <script>
     import { mapState } from 'vuex'
     import { mapGetters } from 'vuex'
+    import { mapMutations } from 'vuex'
 
     export default {
         data () {
@@ -37,9 +38,9 @@
             })
         },
         methods: {
-            increment () {
-                this.$store.commit('increment')
-            }
+            ...mapMutations({
+                add: 'INCREMENT'
+            })
         }
 
     }

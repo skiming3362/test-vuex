@@ -1,8 +1,8 @@
 /*
 * @Author: skiming
 * @Date:   2017-07-16 22:00:55
-* @Last Modified by:   chenming
-* @Last Modified time: 2017-07-24 16:46:44
+* @Last Modified by:   skiming
+* @Last Modified time: 2017-07-24 23:11:00
 */
 
 import './test.css';
@@ -20,6 +20,8 @@ import User from './component/user.vue';
 import User2 from './component/user2.vue';
 import UserProfile from './component/user-profile.vue';
 import UserHome from './component/user-home.vue';
+
+import { INCREMENT } from './store/mutation-types'
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -90,7 +92,7 @@ const store = new Vuex.Store({
         getTodoById: (state, getters) => id => state.todos.find(todo => todo.id === id)
     },
     mutations: {
-        increment: state => state.count++
+        [INCREMENT] (state, payload) { state.count += payload.amount }
     }
 });
 

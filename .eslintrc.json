@@ -21,10 +21,6 @@
             "warn",
             "single"
         ],
-        "semi": [
-            "error",
-            "always"
-        ],
         "no-console": 0,
         "no-extra-boolean-cast": 0
     }
