@@ -1,5 +1,5 @@
 {
-  "name": "test-postcss",
+  "name": "test-vuex",
   "scripts": {
     "build": "webpack -p -d --progress --hide-modules --watch",
     "dev": "webpack-dev-server --inline --hot"
