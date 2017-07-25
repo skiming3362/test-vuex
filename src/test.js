@@ -2,7 +2,7 @@
 * @Author: skiming
 * @Date:   2017-07-16 22:00:55
 * @Last Modified by:   chenming
-* @Last Modified time: 2017-07-25 11:19:53
+* @Last Modified time: 2017-07-25 17:36:47
 */
 
 import './test.css';
@@ -99,6 +99,13 @@ const store = new Vuex.Store({
             setTimeout(() => {
                 commit(INCREMENT, {amount: amount})
             }, 1000)
+        },
+        actionA ({ commit }, { amount }) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    commit(INCREMENT, { amount: amount })
+                }, 300)
+            })
         }
     }
 });
