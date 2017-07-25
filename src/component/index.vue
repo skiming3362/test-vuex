@@ -1,6 +1,7 @@
 <template>
   <div>
       <el-button type="primary" @click="add({ amount: 10 })">+</el-button>
+      <el-button type="primary" @click="addAsync({ amount: 5 })">+ async</el-button>
       <div>{{ 'count ' + count }}</div>
       <div>{{ 'localCount ' + localCount }}</div>
       <div>{{ 'countPlusLocalState ' + countPlusLocalState }}</div>
@@ -14,6 +15,7 @@
     import { mapState } from 'vuex'
     import { mapGetters } from 'vuex'
     import { mapMutations } from 'vuex'
+    import { mapActions } from 'vuex'
 
     export default {
         data () {
@@ -40,6 +42,9 @@
         methods: {
             ...mapMutations({
                 add: 'INCREMENT'
+            }),
+            ...mapActions({
+              addAsync: 'incrementAsync'
             })
         }
 
