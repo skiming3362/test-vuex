@@ -1,8 +1,8 @@
 /*
 * @Author: skiming
 * @Date:   2017-07-16 22:00:55
-* @Last Modified by:   skiming
-* @Last Modified time: 2017-07-24 23:11:00
+* @Last Modified by:   chenming
+* @Last Modified time: 2017-07-25 11:19:53
 */
 
 import './test.css';
@@ -93,6 +93,13 @@ const store = new Vuex.Store({
     },
     mutations: {
         [INCREMENT] (state, payload) { state.count += payload.amount }
+    },
+    actions: {
+        incrementAsync ({ commit }, { amount }) {
+            setTimeout(() => {
+                commit(INCREMENT, {amount: amount})
+            }, 1000)
+        }
     }
 });
 
