@@ -2,6 +2,7 @@
   <div>
       <el-button type="primary" @click="add({ amount: 10 })">+</el-button>
       <el-button type="primary" @click="addAsync({ amount: 5 })">+ async</el-button>
+      <el-button type="primary" @click="testPromise({ amount: 15 })">+ promise</el-button>
       <div>{{ 'count ' + count }}</div>
       <div>{{ 'localCount ' + localCount }}</div>
       <div>{{ 'countPlusLocalState ' + countPlusLocalState }}</div>
@@ -44,7 +45,8 @@
                 add: 'INCREMENT'
             }),
             ...mapActions({
-              addAsync: 'incrementAsync'
+              addAsync: 'incrementAsync',
+              testPromise: 'actionA'
             })
         }
 
